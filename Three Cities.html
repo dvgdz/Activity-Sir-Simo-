@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Enhanced Cities Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #00475c;
+            padding: 40px;
+            text-align: center;
+            font-size: 36px;
+            color: white;
+            border-bottom: 4px solid #003549;
+        }
+
+        section {
+            display: flex;
+            flex-grow: 1;
+            padding: 20px;
+            margin-top: 20px;
+            gap: 20px;
+        }
+
+        nav {
+            width: 30%;
+            background: #686868;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(82, 82, 82, 0.1);
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-bottom: 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 10px;
+            display: block;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #007b8f;
+        }
+
+        article {
+            width: 65%;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+
+        article h1 {
+            font-size: 32px;
+            color: #00475c;
+        }
+
+        article p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        footer {
+            background-color: #151515;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            position: relative;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        /* Responsive layout */
+        @media (max-width: 800px) {
+
+            nav,
+            article {
+                width: 100%;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h2>Cities</h2>
+    </header>
+
+    <section>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="changeCity('Cagayan de Oro City')">Cagayan de Oro City</a></li>
+                <li><a href="#" onclick="changeCity('Valencia City')">Valencia City</a></li>
+                <li><a href="#" onclick="changeCity('Malaybalay City')">Malaybalay City</a></li>
+            </ul>
+        </nav>
+
+        <article id="city-article">
+            <h1>Welcome</h1>
+            <p>Select a city to see information.</p>
+        </article>
+    </section>
+
+    <footer>
+        <p>Footer</p>
+    </footer>
+
+    <script>
+        // JavaScript to change the article content dynamically
+        function changeCity(cityName) {
+            let cityInfo = {
+                'Cagayan de Oro City': {
+                    title: 'Cagayan de Oro City',
+                    description: 'Cagayan de Oro City, also known as the "City of Golden Friendship," is renowned for its warm hospitality and rich culture. The city’s name is derived from the term "Cagayan," which means "river" in the local dialect, and "de Oro," which refers to gold. This reflects both the city history of gold mining and the symbolic value of friendship that defines its people.',
+                },
+                'Valencia City': {
+                    title: 'Valencia City',
+                    description: 'Valencia City is known for its rich agricultural heritage, as it is located in the heart of Bukidnon, a province famous for its vast farmlands. The city embraces a predominantly Christian population, with Roman Catholicism being the major religion. The locals take pride in their traditions, such as agricultural festivals that celebrate the harvest and the hardworking spirit of the people.',
+                },
+                'Malaybalay City': {
+                    title: 'Malaybalay City',
+                    description: 'Malaybalay City is the capital of Bukidnon, and like other cities in the province, it has a deep connection to agriculture and nature. The culture here is a mix of indigenous traditions from the Lumad (native people) and the influences of Spanish and American colonial periods. Festivals like Kaamulan Festival, which is celebrated annually, showcase the traditions of the indigenous groups in Bukidnon, with rituals, dances, and traditional music that highlight the province’s ethnic heritage.',
+                }
+            };
+
+            // Update article content based on the selected city
+            let city = cityInfo[cityName];
+            if (city) {
+                document.getElementById('city-article').innerHTML = `
+                    <h1>${city.title}</h1>
+                    <p>${city.description}</p>
+                `;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
